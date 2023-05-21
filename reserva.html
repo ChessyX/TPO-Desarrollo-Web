@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva | Pyth Resto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reserva.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Logo pyth resto"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn"><button>RESERVAR</button></a>
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="#" id="reserva"><button>RESERVAR</button></a></li>
+        </div>
+    </header>
+    <div class="container">
+        <div class="up"></div>
+        <div class="down">
+            <h1>Haz una reserva</h1>
+            <p>Reservá una mesa en nuestro restaurante de manera rápida y fácil a través de nuestro sistema en línea. Elegí el día y la hora que mejor se adapte a tus necesidades y disfrutá de una experiencia gastronómica única en un ambiente acogedor y elegante</p>
+            <div class="reserve">
+                <form>
+                    <label for="hora">Fecha:</label>
+                    <input type="date" id="fecha">
+                    <label for="hora">Horario:</label>
+                    <select name="horario" id="horario">
+                        <option value="1">12:00</option>
+                        <option value="2">12:30</option>
+                        <option value="3">13:00</option>
+                        <option value="4">13:30</option>
+                        <option value="5">14:00</option>
+                        <option value="6">14:30</option>
+                        <option value="7">15:00</option>
+                        <option value="8">20:00</option>
+                        <option value="9">20:30</option>
+                        <option value="10">21:00</option>
+                        <option value="11">21:30</option>
+                        <option value="12">22:00</option>
+                        <option value="13">22:30</option>
+                        <option value="14">23:00</option>
+                    </select>
+                    <label for="hora">Cantidad de personas:</label>
+                    <select id="personas" name="personas">
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="6">6 personas</option>
+                        <option value="7">7 personas</option>
+                        <option value="8">8 personas</option>
+                        <option value="9">9 personas</option>
+                        <option value="10">10 personas</option>
+                    </select>
+                </form>
+                <button class="btn2" id="myBtn">Reservar</button>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>Contacto</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formulario" onsubmit="validarFormularioReserva(event)">
+                                <input type="text" id="nombre" class="field" placeholder="Nombre *" name="name" minlength="3" required>
+                                <input type="email" id="correo" class="field" placeholder="Correo *" name="email" required>
+                                <input type="tel" id="telefono" class="field" placeholder="Teléfono *" name="phone" required>
+                                <textarea placeholder="Mensaje" class="field" name="message"></textarea>
+                                <input type="submit" value="Reservar" class="btn3">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="icons">
+            <a href="https://www.instagram.com/" target="_blank" class="social_icon"><i class="fa-brands fa-instagram fa-lg"></i></a>
+            <a href="https://twitter.com/" target="_blank" class="social_icon"><i class="fa-brands fa-twitter fa-lg"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" class="social_icon"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+            <a href="#null" class="social_icon"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+        </div>
+        <span class="horario"><i class="fa-solid fa-clock"></i> Lunes a Domingo 12:00 - 16:00 y 20:00 - 00:00</span>
+        <span class="direction"><i class="fa-sharp fa-solid fa-location-dot"></i> Lorem ipsum dolor sit amet eos elit 123 street</span>
+        <span class="copyright">© Copyright 2023 Pyth Resto - Todos los derechos reservados</span>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/validatorReserve.js"></script>
+    <script>
+        var fechaInput = document.getElementById('fecha');
+        var fechaActual = new Date();
+        var fechaFormateada = fechaActual.toISOString().split('T')[0];
+        fechaInput.min = fechaFormateada;
+        
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

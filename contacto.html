@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Pyth Resto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Logo pyth resto"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="#" style="color: #ffd600">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="reserva.html"><button>RESERVAR</button></a>
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="#" style="color: #ffd600">Contacto</a></li>
+            <li><a href="reserva.html" id="reserva"><button>RESERVAR</button></a></li>
+        </div>
+    </header>
+    <div id="map"></div>
+    <div class="container">
+		<div class="contact-box">
+			<div class="left">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.173025636143!2d75.88625737597373!3d22.75895922611303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302af859e2511%3A0xd2362f08d703c596!2sTest%20Restaurant!5e0!3m2!1ses-419!2sar!4v1683779295910!5m2!1ses-419!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+			<div class="right">
+				<h2 style="font-size:1.5rem;">Contáctanos</h2>
+				<form id="formulario" name="formulario" onsubmit="validarFormulario(event)" action="https://formspree.io/f/mknaeogy"
+                method="POST">
+                    <input type="text" id="nombre" class="field" placeholder="Nombre" name="name" minlength="3" required>
+                    <input type="email" id="correo" class="field" placeholder="Correo" name="email" required>
+                    <input type="tel" id="telefono" class="field" placeholder="Teléfono" name="phone" required>
+                    <textarea placeholder="Mensaje" class="field" name="message"></textarea>
+                    <button class="btn">Enviar</button>
+                </form>
+			</div>
+		</div>
+	</div>
+    <footer>
+        <div class="icons">
+            <a href="https://www.instagram.com/" target="_blank" class="social_icon"><i class="fa-brands fa-instagram fa-lg"></i></a>
+            <a href="https://twitter.com/" target="_blank" class="social_icon"><i class="fa-brands fa-twitter fa-lg"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" class="social_icon"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+            <a href="#null" class="social_icon"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+        </div>
+        <span class="horario"><i class="fa-solid fa-clock"></i> Lunes a Domingo 12:00 - 16:00 y 20:00 - 00:00</span>
+        <span class="direction"><i class="fa-sharp fa-solid fa-location-dot"></i> Lorem ipsum dolor sit amet eos elit 123 street</span>
+        <span class="copyright">© Copyright 2023 Pyth Resto - Todos los derechos reservados</span>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuMLgdvJEDORrFgLO79a3zqrXUoORmv0I&callback=initMap"></script>
+    <script src="js/validator.js"></script>
+</body>
+</html>
